@@ -1,4 +1,6 @@
 import { Header } from "../components/Header";
+import Image from "next/image";
+import postSampleImg from "../public/img/post-sample-image.jpg";
 
 const Post = () => {
   return (
@@ -78,11 +80,7 @@ const Post = () => {
                 change a man.
               </p>
               <a href="#!">
-                <img
-                  className="img-fluid"
-                  src="assets/img/post-sample-image.jpg"
-                  alt="..."
-                />
+                <Image className="img-fluid" src={postSampleImg} alt="..." />
               </a>
               <span className="caption text-muted">
                 To go places and do things that have never been done before –

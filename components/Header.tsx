@@ -3,7 +3,7 @@ export const Header = (props: { title: string; subHeading: string }) => {
     <header
       className="masthead"
       style={{
-        backgroundImage: "url('assets/img/about-bg.jpg')",
+        backgroundImage: "url('public/img/about-bg.jpg')",
       }}
     >
       <div className="container position-relative px-4 px-lg-5">
