@@ -1,5 +1,7 @@
 // add bootstrap css
 import "bootstrap/dist/css/bootstrap.css";
+
+import "@fortawesome/fontawesome-free/css/all.css";
 // own css files here
 import "../styles/styles.scss";
 import Head from "next/head";
