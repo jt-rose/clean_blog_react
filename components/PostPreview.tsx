@@ -40,7 +40,9 @@ export const PostPreview = (props: IPostPreview) => {
       </Link>
       <p className="post-meta">
         {"Posted by "}
-        <a href={props.posterURL}>{props.poster}</a>
+        <Link href={props.posterURL}>
+          <a>{props.poster}</a>
+        </Link>
         {" on "}
         {fmtDate}
       </p>
