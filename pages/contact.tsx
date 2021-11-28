@@ -7,7 +7,11 @@ const Contact = () => {
   const [phone, updatePhone] = useState("");
   const [message, updateMessage] = useState("");
 
-  //const onSubmit = () => {};
+  // when using this in a real app, connect the submit function
+  // to the appropriate backend request
+  const onSubmit = () => {
+    console.log("submitted!");
+  };
 
   // add validation
   return (
@@ -22,14 +26,7 @@ const Contact = () => {
                 message and I will get back to you as soon as possible!
               </p>
               <div className="my-5">
-                {/*<!-- * * * * * * * * * * * * * * *-->
-                            <!-- * * SB Forms Contact Form * *-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- This form is pre-integrated with SB Forms.-->
-                            <!-- To make this form functional, sign up at-->
-                            <!-- https://startbootstrap.com/solution/contact-forms-->
-                            <!-- to get an API token!-->*/}
-                <form id="contactForm">
+                <form id="contactForm" onClick={() => onSubmit()}>
                   <div className="form-floating">
                     <input
                       className="form-control"
