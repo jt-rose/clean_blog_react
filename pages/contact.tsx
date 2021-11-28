@@ -1,6 +1,15 @@
 import { Header } from "../components/Header";
+import { useState } from "react";
 
 const Contact = () => {
+  const [name, updateName] = useState("");
+  const [email, updateEmail] = useState("");
+  const [phone, updatePhone] = useState("");
+  const [message, updateMessage] = useState("");
+
+  //const onSubmit = () => {};
+
+  // add validation
   return (
     <>
       <Header title="Contact Me" subHeading="Have questions? I have answers." />
@@ -20,22 +29,18 @@ const Contact = () => {
                             <!-- To make this form functional, sign up at-->
                             <!-- https://startbootstrap.com/solution/contact-forms-->
                             <!-- to get an API token!-->*/}
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <form id="contactForm">
                   <div className="form-floating">
                     <input
                       className="form-control"
                       id="name"
                       type="text"
                       placeholder="Enter your name..."
-                      data-sb-validations="required"
+                      value={name}
+                      onChange={(e) => updateName(e.target.value)}
                     />
                     <label htmlFor="name">Name</label>
-                    <div
-                      className="invalid-feedback"
-                      data-sb-feedback="name:required"
-                    >
-                      A name is required.
-                    </div>
+                    <div className="invalid-feedback">A name is required.</div>
                   </div>
                   <div className="form-floating">
                     <input
@@ -43,21 +48,14 @@ const Contact = () => {
                       id="email"
                       type="email"
                       placeholder="Enter your email..."
-                      data-sb-validations="required,email"
+                      value={email}
+                      onChange={(e) => updateEmail(e.target.value)}
                     />
                     <label htmlFor="email">Email address</label>
-                    <div
-                      className="invalid-feedback"
-                      data-sb-feedback="email:required"
-                    >
+                    <div className="invalid-feedback">
                       An email is required.
                     </div>
-                    <div
-                      className="invalid-feedback"
-                      data-sb-feedback="email:email"
-                    >
-                      Email is not valid.
-                    </div>
+                    <div className="invalid-feedback">Email is not valid.</div>
                   </div>
                   <div className="form-floating">
                     <input
@@ -65,13 +63,11 @@ const Contact = () => {
                       id="phone"
                       type="tel"
                       placeholder="Enter your phone number..."
-                      data-sb-validations="required"
+                      value={phone}
+                      onChange={(e) => updatePhone(e.target.value)}
                     />
                     <label htmlFor="phone">Phone Number</label>
-                    <div
-                      className="invalid-feedback"
-                      data-sb-feedback="phone:required"
-                    >
+                    <div className="invalid-feedback">
                       A phone number is required.
                     </div>
                   </div>
@@ -81,13 +77,11 @@ const Contact = () => {
                       id="message"
                       placeholder="Enter your message here..."
                       style={{ height: "12rem" }}
-                      data-sb-validations="required"
-                    ></textarea>
+                      value={message}
+                      onChange={(e) => updateMessage(e.target.value)}
+                    />
                     <label htmlFor="message">Message</label>
-                    <div
-                      className="invalid-feedback"
-                      data-sb-feedback="message:required"
-                    >
+                    <div className="invalid-feedback">
                       A message is required.
                     </div>
                   </div>
@@ -101,11 +95,6 @@ const Contact = () => {
                       <div className="fw-bolder">
                         Form submission successful!
                       </div>
-                      To activate this form, sign up at
-                      <br />
-                      <a href="https://startbootstrap.com/solution/contact-forms">
-                        https://startbootstrap.com/solution/contact-forms
-                      </a>
                     </div>
                   </div>
                   {/*<!-- Submit error message-->
