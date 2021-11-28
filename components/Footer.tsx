@@ -8,7 +8,7 @@ export const Footer = () => {
           <div className="col-md-10 col-lg-8 col-xl-7">
             <ul className="list-inline text-center">
               <li className="list-inline-item">
-                <Link href="#!">
+                <Link href="/">
                   <a>
                     <span className="fa-stack fa-lg">
                       <i className="fas fa-circle fa-stack-2x"></i>
@@ -18,7 +18,7 @@ export const Footer = () => {
                 </Link>
               </li>
               <li className="list-inline-item">
-                <Link href="#!">
+                <Link href="/">
                   <a>
                     <span className="fa-stack fa-lg">
                       <i className="fas fa-circle fa-stack-2x"></i>
@@ -28,7 +28,7 @@ export const Footer = () => {
                 </Link>
               </li>
               <li className="list-inline-item">
-                <Link href="#!">
+                <Link href="/">
                   <a>
                     <span className="fa-stack fa-lg">
                       <i className="fas fa-circle fa-stack-2x"></i>
