@@ -1,5 +1,6 @@
 import { Header } from "../components/Header";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 type FormData = {
   name: string;
@@ -23,6 +24,11 @@ const Contact = () => {
     },
   });
 
+  // when using this in a real app, submitSuccess and submitError
+  // should be defined by the result of the submit query
+  const [submitSuccess, updateSubmitSuccess] = useState(false);
+  const submitError = false;
+
   const watchAllFields = watch();
   const incompleteForm = Object.values(watchAllFields).some(
     (val) => val === ""
@@ -30,7 +36,10 @@ const Contact = () => {
 
   // when using this in a real app, connect the submit function
   // to the appropriate backend request
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
+    updateSubmitSuccess(true);
+  });
 
   return (
     <>
@@ -123,23 +132,29 @@ const Contact = () => {
                     )}
                   </div>
                   <br />
-                  {/*<!-- Submit success message-->
-                                <!---->
-                                <!-- This is what your users will see when the form-->
-                                <!-- has successfully submitted-->*/}
-                  <div className="d-none" id="submitSuccessMessage">
-                    <div className="text-center mb-3">
-                      <div className="fw-bolder">
-                        Form submission successful!
+                  {
+                    /*<!-- Submit success message-->*/
+                    submitSuccess && (
+                      <div id="submitSuccessMessage">
+                        <div className="text-center mb-3">
+                          <div className="fw-bolder">
+                            Form submission successful!
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  {/*<!-- Submit error message-->
-                                <!---->
-                                <!-- This is what your users will see when there is-->
-                                <!-- an error submitting the form-->
-                                <div className="d-none" id="submitErrorMessage"><div className="text-center text-danger mb-3">Error sending message!</div></div>
-                                <!-- Submit Button-->*/}
+                    )
+                  }
+
+                  {
+                    /*<!-- Submit error message-->*/
+                    submitError && (
+                      <div className="d-none" id="submitErrorMessage">
+                        <div className="text-center text-danger mb-3">
+                          Error sending message!
+                        </div>
+                      </div>
+                    )
+                  }
                   <button
                     className="btn btn-primary text-uppercase"
                     id="submitButton"
