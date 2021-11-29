@@ -1,19 +1,37 @@
 import { Header } from "../components/Header";
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+
+type FormData = {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+};
 
 const Contact = () => {
-  const [name, updateName] = useState("");
-  const [email, updateEmail] = useState("");
-  const [phone, updatePhone] = useState("");
-  const [message, updateMessage] = useState("");
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<FormData>({
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    },
+  });
+
+  const watchAllFields = watch();
+  const incompleteForm = Object.values(watchAllFields).some(
+    (val) => val === ""
+  );
 
   // when using this in a real app, connect the submit function
   // to the appropriate backend request
-  const onSubmit = () => {
-    console.log("submitted!");
-  };
+  const onSubmit = handleSubmit((data) => console.log(data));
 
-  // add validation
   return (
     <>
       <Header title="Contact Me" subHeading="Have questions? I have answers." />
@@ -26,18 +44,21 @@ const Contact = () => {
                 message and I will get back to you as soon as possible!
               </p>
               <div className="my-5">
-                <form id="contactForm" onClick={() => onSubmit()}>
+                <form id="contactForm" onSubmit={onSubmit}>
                   <div className="form-floating">
                     <input
                       className="form-control"
                       id="name"
                       type="text"
                       placeholder="Enter your name..."
-                      value={name}
-                      onChange={(e) => updateName(e.target.value)}
+                      {...register("name", { required: true })}
                     />
                     <label htmlFor="name">Name</label>
-                    <div className="invalid-feedback">A name is required.</div>
+                    {errors.name && (
+                      <div className="invalid-feedback d-block">
+                        A name is required.
+                      </div>
+                    )}
                   </div>
                   <div className="form-floating">
                     <input
@@ -45,14 +66,22 @@ const Contact = () => {
                       id="email"
                       type="email"
                       placeholder="Enter your email..."
-                      value={email}
-                      onChange={(e) => updateEmail(e.target.value)}
+                      {...register("email", {
+                        required: true,
+                        pattern: /(\w|\d)+\@(\w|\d)+/,
+                      })}
                     />
                     <label htmlFor="email">Email address</label>
-                    <div className="invalid-feedback">
-                      An email is required.
-                    </div>
-                    <div className="invalid-feedback">Email is not valid.</div>
+                    {errors.email?.type === "required" && (
+                      <div className="invalid-feedback d-block">
+                        An email is required.
+                      </div>
+                    )}
+                    {errors.email?.type === "pattern" && (
+                      <div className="invalid-feedback d-block">
+                        Email is not valid.
+                      </div>
+                    )}
                   </div>
                   <div className="form-floating">
                     <input
@@ -60,13 +89,23 @@ const Contact = () => {
                       id="phone"
                       type="tel"
                       placeholder="Enter your phone number..."
-                      value={phone}
-                      onChange={(e) => updatePhone(e.target.value)}
+                      {...register("phone", {
+                        required: true,
+                        pattern:
+                          /\d{3}(\s|\-|\.)?\d{3}(\s|\-|\.)?\d{4}(\s|\-|\.)?/,
+                      })}
                     />
                     <label htmlFor="phone">Phone Number</label>
-                    <div className="invalid-feedback">
-                      A phone number is required.
-                    </div>
+                    {errors.phone?.type === "required" && (
+                      <div className="invalid-feedback d-block">
+                        A phone number is required.
+                      </div>
+                    )}
+                    {errors.phone?.type === "pattern" && (
+                      <div className="invalid-feedback d-block">
+                        Phone number is not valid.
+                      </div>
+                    )}
                   </div>
                   <div className="form-floating">
                     <textarea
@@ -74,13 +113,14 @@ const Contact = () => {
                       id="message"
                       placeholder="Enter your message here..."
                       style={{ height: "12rem" }}
-                      value={message}
-                      onChange={(e) => updateMessage(e.target.value)}
+                      {...register("message", { required: true })}
                     />
                     <label htmlFor="message">Message</label>
-                    <div className="invalid-feedback">
-                      A message is required.
-                    </div>
+                    {errors.message && (
+                      <div className="invalid-feedback d-block">
+                        A message is required.
+                      </div>
+                    )}
                   </div>
                   <br />
                   {/*<!-- Submit success message-->
@@ -101,9 +141,10 @@ const Contact = () => {
                                 <div className="d-none" id="submitErrorMessage"><div className="text-center text-danger mb-3">Error sending message!</div></div>
                                 <!-- Submit Button-->*/}
                   <button
-                    className="btn btn-primary text-uppercase disabled"
+                    className="btn btn-primary text-uppercase"
                     id="submitButton"
                     type="submit"
+                    disabled={incompleteForm}
                   >
                     Send
                   </button>
