@@ -1,5 +1,32 @@
 import Link from "next/link";
 
+const NavBarLinks = () => {
+  return (
+    <ul className="navbar-nav ms-auto py-4 py-lg-0">
+      <li className="nav-item">
+        <Link href="/">
+          <a className="nav-link px-lg-3 py-3 py-lg-4">Home</a>
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link href="/about">
+          <a className="nav-link px-lg-3 py-3 py-lg-4">About</a>
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link href="/post">
+          <a className="nav-link px-lg-3 py-3 py-lg-4">Sample Post</a>
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link href="/contact">
+          <a className="nav-link px-lg-3 py-3 py-lg-4">Contact</a>
+        </Link>
+      </li>
+    </ul>
+  );
+};
+
 export const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light" id="mainNav">
@@ -20,28 +47,7 @@ export const NavBar = () => {
           <i className="fas fa-bars"></i>
         </button>
         <div className="collapse navbar-collapse" id="navbarResponsive">
-          <ul className="navbar-nav ms-auto py-4 py-lg-0">
-            <li className="nav-item">
-              <Link href="/">
-                <a className="nav-link px-lg-3 py-3 py-lg-4">Home</a>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/about">
-                <a className="nav-link px-lg-3 py-3 py-lg-4">About</a>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/post">
-                <a className="nav-link px-lg-3 py-3 py-lg-4">Sample Post</a>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/contact">
-                <a className="nav-link px-lg-3 py-3 py-lg-4">Contact</a>
-              </Link>
-            </li>
-          </ul>
+          <NavBarLinks />
         </div>
       </div>
     </nav>
