@@ -1,11 +1,19 @@
-export const Header = (props: { title: string; subHeading: string }) => {
+import Image from "next/image";
+
+export const Header = (props: {
+  title: string;
+  subHeading: string;
+  headerIMGPath: string;
+}) => {
   return (
-    <header
-      className="masthead"
-      style={{
-        backgroundImage: "url('public/img/about-bg.jpg')",
-      }}
-    >
+    <header className="masthead">
+      <Image
+        alt="Pen and Paper"
+        src={props.headerIMGPath}
+        layout="fill"
+        objectFit="cover"
+        quality={100}
+      />
       <div className="container position-relative px-4 px-lg-5">
         <div className="row gx-4 gx-lg-5 justify-content-center">
           <div className="col-md-10 col-lg-8 col-xl-7">

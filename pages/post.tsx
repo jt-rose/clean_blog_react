@@ -8,6 +8,7 @@ const Post = () => {
       <Header
         title="Man must explore, and this is exploration at its greatest"
         subHeading="Problems look mighty small from 150 miles up"
+        headerIMGPath="/img/post-bg.jpg"
       />
       <article className="mb-4">
         <div className="container px-4 px-lg-5">

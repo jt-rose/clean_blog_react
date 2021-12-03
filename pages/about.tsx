@@ -3,7 +3,11 @@ import { Header } from "../components/Header";
 const About = () => {
   return (
     <>
-      <Header title="About me" subHeading="This is what I do." />
+      <Header
+        title="About me"
+        subHeading="This is what I do."
+        headerIMGPath="/img/about-bg.jpg"
+      />
       <main className="mb-4">
         <div className="container px-4 px-lg-5">
           <div className="row gx-4 gx-lg-5 justify-content-center">

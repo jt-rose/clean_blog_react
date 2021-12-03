@@ -43,7 +43,11 @@ const Contact = () => {
 
   return (
     <>
-      <Header title="Contact Me" subHeading="Have questions? I have answers." />
+      <Header
+        title="Contact Me"
+        subHeading="Have questions? I have answers."
+        headerIMGPath="/img/contact-bg.jpg"
+      />
       <main className="mb-4">
         <div className="container px-4 px-lg-5">
           <div className="row gx-4 gx-lg-5 justify-content-center">
