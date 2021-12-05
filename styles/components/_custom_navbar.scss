@@ -16,6 +16,7 @@
     max-height: 500px;
   }
 }
+
 #mainNav {
   #navbar-desktop {
     display: none;
@@ -25,6 +26,13 @@
     display: block;
   }
 
+  .navbar-top-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    width: 100%;
+  }
   @include media-breakpoint-up(lg) {
     #navbar-desktop {
       display: flex;
@@ -32,6 +40,10 @@
     }
 
     #navbar-mobile {
+      display: none;
+    }
+
+    .navbar-toggler {
       display: none;
     }
   }

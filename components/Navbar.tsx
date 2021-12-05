@@ -24,13 +24,7 @@ const NavBarToggler = (props: {
 };
 const NavBarLinks = (props: { mediaTarget: "desktop" | "mobile" }) => {
   return (
-    <div
-      //className={`slider ${!props.visible && "closed"}`}
-      id="navbarResponsive"
-      //style={{ display: props.visible ? "block" : "none" }}
-      style={{ width: "100%", flexGrow: 1 }}
-      className="navbar-collapse"
-    >
+    <div id="navbarResponsive" className="navbar-collapse">
       <ul
         className="navbar-nav ms-auto py-4 py-lg-0"
         id={`navbar-${props.mediaTarget}`}
@@ -77,15 +71,7 @@ export const Navbar = () => {
   return (
     <nav id="mainNav" className="navbar navbar-expand-lg navbar-light">
       <div className="container px-4 px-lg-5">
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flexShrink: 0,
-            width: "100%",
-          }}
-        >
+        <div className="navbar-top-container">
           <SiteLogo />
           <NavBarDesktopLinks />
           <NavBarToggler visible={visible} setVisible={setVisible} />
