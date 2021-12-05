@@ -4,9 +4,10 @@ import { useState } from "react";
 const NavBarLinks = (props: { visible: boolean }) => {
   return (
     <div
-      className="collapse navbar-collapse"
+      className={`slider ${!props.visible && "closed"}`}
       id="navbarResponsive"
-      style={{ display: props.visible ? "block" : "none" }}
+      //style={{ display: props.visible ? "block" : "none" }}
+      style={{ width: "100%" }}
     >
       <ul className="navbar-nav ms-auto py-4 py-lg-0">
         <li className="nav-item">
@@ -37,11 +38,16 @@ const NavBarLinks = (props: { visible: boolean }) => {
 export const NavBar = () => {
   const [visible, setVisible] = useState(false);
   return (
-    <nav className="navbar navbar-expand-lg navbar-light" id="mainNav">
+    <nav
+      className="navbar navbar-expand-lg navbar-light"
+      id="mainNav"
+      style={{ display: "flex", flexDirection: "column" }}
+    >
       <div className="container px-4 px-lg-5">
         <Link href="/">
           <a className="navbar-brand">Start Bootstrap</a>
         </Link>
+        <NavBarLinks visible={visible} />
         <button
           className="navbar-toggler"
           type="button"
@@ -55,8 +61,8 @@ export const NavBar = () => {
           Menu
           <i className="fas fa-bars"></i>
         </button>
-        <NavBarLinks visible={visible} />
       </div>
+      <NavBarLinks visible={visible} />
     </nav>
   );
 };

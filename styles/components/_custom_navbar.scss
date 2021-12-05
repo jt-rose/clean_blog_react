@@ -1,0 +1,38 @@
+.slider {
+  overflow-y: hidden;
+  max-height: 500px; /* approximate max height */
+  box-sizing: border-box;
+
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+}
+.slider.closed {
+  max-height: 0;
+}
+
+@media screen and (width: 500px) {
+  .slider.closed {
+    max-height: 500px;
+  }
+}
+#mainNav {
+  #navbar-desktop {
+    display: none;
+  }
+
+  #navbar-mobile {
+    display: block;
+  }
+
+  @include media-breakpoint-up(lg) {
+    #navbar-desktop {
+      display: flex;
+      flex-direction: row;
+    }
+
+    #navbar-mobile {
+      display: none;
+    }
+  }
+}
