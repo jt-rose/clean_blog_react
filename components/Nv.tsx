@@ -84,6 +84,7 @@ export const NV = () => {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
+            flexShrink: 0,
             width: "100%",
           }}
         >
