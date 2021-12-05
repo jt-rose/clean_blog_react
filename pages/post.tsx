@@ -1,6 +1,7 @@
 import { Header } from "../components/Header";
 import Image from "next/image";
 import postSampleImg from "../public/img/post-sample-image.jpg";
+import { Navbar } from "../components/Navbar";
 
 const Post = () => {
   return (
@@ -10,6 +11,7 @@ const Post = () => {
         subHeading="Problems look mighty small from 150 miles up"
         headerIMGPath="/img/post-bg.jpg"
       />
+      <Navbar />
       <article className="mb-4">
         <div className="container px-4 px-lg-5">
           <div className="row gx-4 gx-lg-5 justify-content-center">
