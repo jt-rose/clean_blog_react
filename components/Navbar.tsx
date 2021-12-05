@@ -61,8 +61,6 @@ const NavBarMobileLinks = (props: { visible: boolean }) => {
     <div
       className={`slider ${!props.visible && "closed"}`}
       id="navbarResponsive"
-      //style={{ display: props.visible ? "block" : "none" }}
-      style={{ width: "100%" }}
     >
       <NavBarLinks mediaTarget="mobile" />
     </div>
