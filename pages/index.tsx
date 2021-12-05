@@ -50,17 +50,17 @@ const Index = () => {
           <div className="col-md-10 col-lg-8 col-xl-7">
             {/*<!-- Post preview-->*/}
             {posts.map((post) => (
-              <>
+              <div key={post.title + "-container"}>
                 <PostPreview
                   title={post.title}
                   subtitle={post.subtitle}
                   date={post.date}
                   poster={post.poster}
                   posterURL={post.posterURL}
-                  key={`${post.title}-preview`}
+                  key={post.title + "-preview"}
                 />
                 <hr className="my-4" />
-              </>
+              </div>
             ))}
 
             {/*<!-- Pager-->*/}
