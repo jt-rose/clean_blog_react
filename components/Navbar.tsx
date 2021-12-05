@@ -1,7 +1,62 @@
 import Link from "next/link";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
-const NavBarLinks = (props: { visible: boolean }) => {
+const NavBarToggler = (props: {
+  visible: boolean;
+  setVisible: Dispatch<SetStateAction<boolean>>;
+}) => {
+  const { visible, setVisible } = props;
+  return (
+    <button
+      className="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarResponsive"
+      aria-controls="navbarResponsive"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      onClick={() => setVisible(!visible)}
+    >
+      Menu
+      <i className="fas fa-bars"></i>
+    </button>
+  );
+};
+const NavBarLinks = (props: { mediaTarget: "desktop" | "mobile" }) => {
+  return (
+    <div
+      //className={`slider ${!props.visible && "closed"}`}
+      id="navbarResponsive"
+      //style={{ display: props.visible ? "block" : "none" }}
+      style={{ width: "100%", flexGrow: 1 }}
+      className="navbar-collapse"
+    >
+      <ul
+        className="navbar-nav ms-auto py-4 py-lg-0"
+        id={`navbar-${props.mediaTarget}`}
+      >
+        {[
+          { href: "/", linkName: "Home" },
+          { href: "/about", linkName: "About" },
+          { href: "/post", linkName: "Sample Post" },
+          { href: "/contact", linkName: "Contact" },
+        ].map((pageInfo) => (
+          <li className="nav-item" key={pageInfo.linkName + " link"}>
+            <Link href={pageInfo.href}>
+              <a className="nav-link px-lg-3 py-3 py-lg-4">
+                {pageInfo.linkName}
+              </a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+const NavBarDesktopLinks = () => <NavBarLinks mediaTarget="desktop" />;
+
+const NavBarMobileLinks = (props: { visible: boolean }) => {
   return (
     <div
       className={`slider ${!props.visible && "closed"}`}
@@ -9,60 +64,36 @@ const NavBarLinks = (props: { visible: boolean }) => {
       //style={{ display: props.visible ? "block" : "none" }}
       style={{ width: "100%" }}
     >
-      <ul className="navbar-nav ms-auto py-4 py-lg-0">
-        <li className="nav-item">
-          <Link href="/">
-            <a className="nav-link px-lg-3 py-3 py-lg-4">Home</a>
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link href="/about">
-            <a className="nav-link px-lg-3 py-3 py-lg-4">About</a>
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link href="/post">
-            <a className="nav-link px-lg-3 py-3 py-lg-4">Sample Post</a>
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link href="/contact">
-            <a className="nav-link px-lg-3 py-3 py-lg-4">Contact</a>
-          </Link>
-        </li>
-      </ul>
+      <NavBarLinks mediaTarget="mobile" />
     </div>
   );
 };
+const SiteLogo = () => (
+  <Link href="/">
+    <a className="navbar-brand">Start Bootstrap</a>
+  </Link>
+);
 
-export const NavBar = () => {
+export const Navbar = () => {
   const [visible, setVisible] = useState(false);
   return (
-    <nav
-      className="navbar navbar-expand-lg navbar-light"
-      id="mainNav"
-      style={{ display: "flex", flexDirection: "column" }}
-    >
+    <nav id="mainNav" className="navbar navbar-expand-lg navbar-light">
       <div className="container px-4 px-lg-5">
-        <Link href="/">
-          <a className="navbar-brand">Start Bootstrap</a>
-        </Link>
-        <NavBarLinks visible={visible} />
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarResponsive"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          onClick={() => setVisible(!visible)}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexShrink: 0,
+            width: "100%",
+          }}
         >
-          Menu
-          <i className="fas fa-bars"></i>
-        </button>
+          <SiteLogo />
+          <NavBarDesktopLinks />
+          <NavBarToggler visible={visible} setVisible={setVisible} />
+        </div>
+        <NavBarMobileLinks visible={visible} />
       </div>
-      <NavBarLinks visible={visible} />
     </nav>
   );
 };
