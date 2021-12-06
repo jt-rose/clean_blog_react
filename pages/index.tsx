@@ -36,7 +36,7 @@ const posts: IPostPreview[] = [
   },
 ];
 
-const Index = () => {
+const Index = (props: { posts: IPostPreview[] }) => {
   return (
     <>
       <Header
@@ -49,7 +49,7 @@ const Index = () => {
         <div className="row gx-4 gx-lg-5 justify-content-center">
           <div className="col-md-10 col-lg-8 col-xl-7">
             {/*<!-- Post preview-->*/}
-            {posts.map((post) => (
+            {props.posts.map((post) => (
               <div key={post.title + "-container"}>
                 <PostPreview
                   title={post.title}
@@ -76,4 +76,24 @@ const Index = () => {
   );
 };
 
-export default Index;
+// boilerplate for NextJS SSR
+// this should be set up to enable server-side rendering
+// from the appropriate database
+/*
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`https://.../data`)
+  const data = await res.json()
+
+  // Pass data to the page via props
+  return { props: { data } }
+}
+*/
+
+// For our sample app, we will ignore SSR
+// and statically generate the page with the post samples included
+// but for a site with a live database,
+// SSR should be enabled via getServerSideProps()
+// to dynamically generate the page and maintain SEO
+const IndexWithSample = () => <Index posts={posts} />;
+export default IndexWithSample;
