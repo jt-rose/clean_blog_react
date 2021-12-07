@@ -2,6 +2,7 @@ export interface IPostPreview {
   postID: number;
   title: string;
   subtitle?: string;
+
   poster: string;
   date: Date;
 }

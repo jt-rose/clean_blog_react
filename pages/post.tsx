@@ -5,7 +5,7 @@ import { SamplePost } from "../components/SamplePost";
 
 // The Post page can accept any number of components for the post
 // via the children prop
-const Post = (props: { children: ReactNode }) => {
+export const Post = (props: { children: ReactNode }) => {
   return (
     <>
       <Header
