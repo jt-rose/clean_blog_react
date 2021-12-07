@@ -1,40 +1,7 @@
 import { Header } from "../components/Header";
-import { IPostPreview, PostPreview } from "../components/PostPreview";
+import { PostPreview } from "../components/PostPreview";
 import { Navbar } from "../components/Navbar";
-
-const sampleDate = new Date();
-const posts: IPostPreview[] = [
-  {
-    title: "Man must explore, and this is exploration at its greatest",
-    subtitle: "Problems look mighty small from 150 miles up",
-    date: sampleDate,
-    poster: "Sample Poster",
-    posterURL: "/",
-  },
-  {
-    title:
-      "I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.",
-    date: sampleDate,
-    poster: "Sample Poster",
-    posterURL: "/",
-  },
-  {
-    title: "Science has not yet mastered prophecy",
-    subtitle:
-      "We predict too much for the next year and yet far too little for the next ten.",
-    date: sampleDate,
-    poster: "Sample Poster",
-    posterURL: "/",
-  },
-  {
-    title: "Failure is not an option",
-    subtitle:
-      "Many say exploration is part of our destiny, but it’s actually our duty to future generations.",
-    date: sampleDate,
-    poster: "Sample Poster",
-    posterURL: "/",
-  },
-];
+import { IPostPreview, posts } from "../data/posts";
 
 const Index = (props: { posts: IPostPreview[] }) => {
   return (
@@ -56,7 +23,7 @@ const Index = (props: { posts: IPostPreview[] }) => {
                   subtitle={post.subtitle}
                   date={post.date}
                   poster={post.poster}
-                  posterURL={post.posterURL}
+                  postID={post.postID}
                   key={post.title + "-preview"}
                 />
                 <hr className="my-4" />

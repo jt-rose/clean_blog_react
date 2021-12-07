@@ -1,12 +1,5 @@
 import Link from "next/link";
-
-export interface IPostPreview {
-  title: string;
-  subtitle?: string;
-  poster: string;
-  posterURL: string;
-  date: Date;
-}
+import { IPostPreview } from "../data/posts";
 
 const months = [
   "January",
@@ -40,7 +33,7 @@ export const PostPreview = (props: IPostPreview) => {
       </Link>
       <p className="post-meta">
         {"Posted by "}
-        <Link href={props.posterURL}>
+        <Link href={`/post/${props.postID}`}>
           <a>{props.poster}</a>
         </Link>
         {" on "}
