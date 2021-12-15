@@ -15,8 +15,8 @@ export const SamplePost = () => {
       </p>
       <p>
         Science cuts two ways, of course; its products can be used for both good
-        and evil. But there's no turning back from science. The early warnings
-        about technological dangers also come from science.
+        and evil. But there&apos;s no turning back from science. The early
+        warnings about technological dangers also come from science.
       </p>
       <p>
         What was most significant about the lunar voyage was not that man set
