@@ -17,4 +17,4 @@ Click [here] for a live demo of the site
 [StartBootstrap Clean Blog]
 
 [startbootstrap clean blog]: https://startbootstrap.com/theme/clean-blog
-[here]: https://clean-blog-with-react.vercel.app
+[here]: https://clean-blog-react.vercel.app
