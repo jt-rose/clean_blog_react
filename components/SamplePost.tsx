@@ -10,8 +10,8 @@ export const SamplePost = () => {
         world as one: a single sphere, a globe, having the qualities of a globe,
         a round earth in which all the directions eventually meet, in which
         there is no center because every point, or none, is center — an equal
-        earth which all men occupy as equals. The airman's earth, if free men
-        make it, will be truly round: a globe in practice, not in theory.
+        earth which all men occupy as equals. The airman&apos;s earth, if free
+        men make it, will be truly round: a globe in practice, not in theory.
       </p>
       <p>
         Science cuts two ways, of course; its products can be used for both good
@@ -25,8 +25,8 @@ export const SamplePost = () => {
       <p>
         A Chinese tale tells of some men sent to harm a young girl who, upon
         seeing her beauty, become her protectors rather than her violators.
-        That's how I felt seeing the Earth for the first time. I could not help
-        but love and cherish her.
+        That&apos;s how I felt seeing the Earth for the first time. I could not
+        help but love and cherish her.
       </p>
       <p>
         For those who have seen the Earth from space, and for the hundreds and
@@ -36,16 +36,16 @@ export const SamplePost = () => {
       </p>
       <h2 className="section-heading">The Final Frontier</h2>
       <p>
-        There can be no thought of finishing for ‘aiming for the stars.’ Both
-        figuratively and literally, it is a task to occupy the generations. And
-        no matter how much progress one makes, there is always the thrill of
-        just beginning.
+        There can be no thought of finishing for &apos;aiming for the
+        stars.&apos; Both figuratively and literally, it is a task to occupy the
+        generations. And no matter how much progress one makes, there is always
+        the thrill of just beginning.
       </p>
       <p>
-        There can be no thought of finishing for ‘aiming for the stars.’ Both
-        figuratively and literally, it is a task to occupy the generations. And
-        no matter how much progress one makes, there is always the thrill of
-        just beginning.
+        There can be no thought of finishing for &apos;aiming for the
+        stars.&apos; Both figuratively and literally, it is a task to occupy the
+        generations. And no matter how much progress one makes, there is always
+        the thrill of just beginning.
       </p>
       <blockquote className="blockquote">
         The dreams of yesterday are the hopes of today and the reality of
@@ -80,14 +80,15 @@ export const SamplePost = () => {
       </p>
       <p>
         As I stand out here in the wonders of the unknown at Hadley, I sort of
-        realize there’s a fundamental truth to our nature, Man must explore, and
-        this is exploration at its greatest.
+        realize there&apos;s a fundamental truth to our nature, Man must
+        explore, and this is exploration at its greatest.
       </p>
       <p>
         Placeholder text by
-        <a href="http://spaceipsum.com/">Space Ipsum</a>
-        &middot; Images by
+        <a href="http://spaceipsum.com/"> Space Ipsum </a>
+        <br /> Images by
         <a href="https://www.flickr.com/photos/nasacommons/">
+          {" "}
           NASA on The Commons
         </a>
       </p>
